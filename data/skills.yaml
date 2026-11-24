@@ -1,14 +1,35 @@
+# icon: devicon 경로 (https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/ 기준). 없으면 글자만 표시
 - category: Cloud
-  items: [AWS, GCP, NCP, Azure]
+  items:
+    - { name: AWS, icon: amazonwebservices/amazonwebservices-original-wordmark.svg }
+    - { name: GCP, icon: googlecloud/googlecloud-original.svg }
+    - { name: NCP }
+    - { name: Azure, icon: azure/azure-original.svg }
 - category: IaC
-  items: [Terraform]
+  items:
+    - { name: Terraform, icon: terraform/terraform-original.svg }
 - category: Container
-  items: [Kubernetes (EKS · GKE), Kustomize, Helm]
+  items:
+    - { name: Kubernetes (EKS · GKE), icon: kubernetes/kubernetes-original.svg }
+    - { name: Helm, icon: helm/helm-original.svg }
+    - { name: Kustomize }
 - category: CI/CD
-  items: [GitHub Actions, Jenkins, Argo CD]
+  items:
+    - { name: GitHub Actions, icon: githubactions/githubactions-original.svg }
+    - { name: Jenkins, icon: jenkins/jenkins-original.svg }
+    - { name: Argo CD, icon: argocd/argocd-original.svg }
 - category: Database
-  items: [Oracle Database, PostgreSQL, MySQL]
+  items:
+    - { name: Oracle Database, icon: oracle/oracle-original.svg }
+    - { name: PostgreSQL, icon: postgresql/postgresql-original.svg }
+    - { name: MySQL, icon: mysql/mysql-original.svg }
 - category: Observability · Security
-  items: [OpenTelemetry, CloudWatch, CloudTrail, AWS WAF, GuardDuty]
+  items:
+    - { name: OpenTelemetry, icon: opentelemetry/opentelemetry-original.svg }
+    - { name: CloudWatch }
+    - { name: CloudTrail }
+    - { name: AWS WAF }
+    - { name: GuardDuty }
 - category: OS
-  items: [Linux]
+  items:
+    - { name: Linux, icon: linux/linux-original.svg }

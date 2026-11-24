@@ -1,9 +1,12 @@
 name: 최성우
 name_en: Karfa Choi
-role: Cloud Engineer
+initials: SW
+role: Cloud · DevOps Engineer
+status: 구직 중 · 클라우드 / DevOps 엔지니어
 tagline: >-
-  AWS·NCP 기반 클라우드 인프라를 구축·운영해 온 Cloud Engineer입니다.
-  AWS–GCP 멀티클라우드 재해복구와 AWS 3-Tier 네트워크·보안 설계 프로젝트를 팀장으로 이끌었습니다.
+  클라우드 엔지니어와 DevOps 엔지니어 포지션을 찾고 있습니다.
+  AWS·NCP 기반 클라우드 인프라를 2년간 구축·운영했고, AWS·GCP 멀티클라우드 환경에서
+  Terraform, Kubernetes, GitOps로 인프라와 배포를 다뤄 왔습니다.
 facts:
   - 클라우드 실무 2년 · (주)퓨렌스
   - AWS DevOps Engineer – Professional

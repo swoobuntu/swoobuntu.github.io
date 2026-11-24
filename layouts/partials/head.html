@@ -2,6 +2,7 @@
 {{- $desc := .Description | default .Params.summary | default site.Params.description -}}
 {{- $og := site.Params.ogImage | absURL -}}
 <meta charset="utf-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">

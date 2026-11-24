@@ -1,26 +1,38 @@
 {{ define "main" }}
 {{- $p := hugo.Data.profile -}}
+{{- $icons := "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/" -}}
 
 <section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">{{ $p.role }}</p>
-    <h1>{{ $p.name }} <span class="name-en">{{ $p.name_en }}</span></h1>
-    <p class="lead">{{ $p.tagline }}</p>
-    <ul class="facts">
-      {{ range $p.facts }}<li>{{ . }}</li>{{ end }}
-    </ul>
-    <div class="cta">
-      {{ range $p.links }}<a class="btn {{ if .primary }}btn-primary{{ end }}" href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <p class="status-pill reveal"><span class="dot"></span>{{ $p.status }}</p>
+      <h1 class="reveal">{{ $p.name }} <span class="name-en">{{ $p.name_en }}</span></h1>
+      <p class="role reveal">{{ $p.role }}</p>
+      <p class="lead reveal">{{ $p.tagline }}</p>
+      <ul class="facts reveal">
+        {{ range $p.facts }}<li>{{ . }}</li>{{ end }}
+      </ul>
+      <div class="cta reveal">
+        {{ range $p.links }}<a class="btn {{ if .primary }}btn-primary{{ end }}" href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}
+      </div>
+    </div>
+    <div class="hero-avatar reveal" aria-hidden="true">
+      {{ if fileExists "static/images/profile.jpg" }}
+        <img src="{{ "images/profile.jpg" | relURL }}" alt="" width="220" height="220">
+      {{ else }}
+        <span>{{ $p.initials }}</span>
+      {{ end }}
     </div>
   </div>
 </section>
 
 <section id="projects" class="section">
   <div class="wrap">
-    <h2 class="section-title">프로젝트</h2>
+    <h2 class="section-title reveal">프로젝트</h2>
     <div class="project-grid">
       {{ range hugo.Data.projects }}
-      <article class="project-card">
+      <article class="project-card lift reveal">
         <p class="card-meta">{{ .period }} · {{ .team }}</p>
         <h3><a href="{{ .page | relURL }}">{{ .title }}</a></h3>
         <p class="card-role">{{ .role }}</p>
@@ -41,33 +53,41 @@
   </div>
 </section>
 
-<section id="experience" class="section alt">
+<section id="timeline" class="section alt">
   <div class="wrap">
-    <h2 class="section-title">경력</h2>
-    {{ range hugo.Data.experience }}
-    <div class="timeline-item">
-      <div class="tl-head">
-        <h3>{{ .company }}</h3>
-        <span class="tl-period">{{ .period }}</span>
-      </div>
-      <p class="card-role">{{ .title }} · {{ .type }}</p>
-      <ul class="bullets">
-        {{ range .bullets }}<li>{{ . }}</li>{{ end }}
-      </ul>
-    </div>
-    {{ end }}
+    <h2 class="section-title reveal">이력</h2>
+    <ol class="timeline">
+      {{ range hugo.Data.timeline }}
+      <li class="tl kind-{{ .kind }} reveal">
+        <span class="tl-dot" aria-hidden="true"></span>
+        <div class="tl-card lift">
+          <p class="tl-date">{{ .date }}
+            <span class="tl-kind">{{ index (dict "work" "경력" "project" "프로젝트" "cert" "자격증" "edu" "학력") .kind }}</span>
+          </p>
+          <h3>{{ with .link }}<a href="{{ . | relURL }}">{{ end }}{{ .title }}{{ with .link }}</a>{{ end }}</h3>
+          {{ with .detail }}<p class="muted">{{ . }}</p>{{ end }}
+          {{ with .bullets }}<ul class="bullets">{{ range . }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ol>
   </div>
 </section>
 
 <section id="skills" class="section">
   <div class="wrap">
-    <h2 class="section-title">기술</h2>
+    <h2 class="section-title reveal">기술</h2>
     <div class="skill-grid">
       {{ range hugo.Data.skills }}
-      <div class="skill-group">
+      <div class="skill-group lift reveal">
         <h3>{{ .category }}</h3>
-        <ul class="chips">
-          {{ range .items }}<li>{{ . }}</li>{{ end }}
+        <ul class="skill-list">
+          {{ range .items }}
+          <li>
+            {{ with .icon }}<img src="{{ $icons }}{{ . }}" alt="" width="22" height="22" loading="lazy">{{ else }}<span class="icon-fallback" aria-hidden="true"></span>{{ end }}
+            {{ .name }}
+          </li>
+          {{ end }}
         </ul>
       </div>
       {{ end }}
@@ -77,10 +97,14 @@
 
 <section id="certifications" class="section alt">
   <div class="wrap">
-    <h2 class="section-title">자격증 · 수료</h2>
+    <h2 class="section-title reveal">자격증 · 수료</h2>
     <div class="cert-grid">
       {{ range hugo.Data.certifications }}
-      <div class="cert-card">
+      <div class="cert-card lift reveal">
+        <div class="cert-logo">
+          {{ with .icon }}<img src="{{ $icons }}{{ . }}" alt="" width="40" height="40" loading="lazy">
+          {{ else }}<svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zm-6.82 9.4v4.1L12 20l6.82-3.5v-4.1L12 16l-6.82-3.6z"/></svg>{{ end }}
+        </div>
         <p class="cert-issuer">{{ .issuer }}</p>
         <h3>{{ .name }}</h3>
         <p class="muted small">
@@ -90,21 +114,6 @@
       </div>
       {{ end }}
     </div>
-  </div>
-</section>
-
-<section id="education" class="section">
-  <div class="wrap">
-    <h2 class="section-title">학력</h2>
-    {{ range hugo.Data.education }}
-    <div class="timeline-item">
-      <div class="tl-head">
-        <h3>{{ .school }}</h3>
-        <span class="tl-period">{{ .period }}</span>
-      </div>
-      <p class="card-role">{{ .degree }}</p>
-    </div>
-    {{ end }}
   </div>
 </section>
 {{ end }}
