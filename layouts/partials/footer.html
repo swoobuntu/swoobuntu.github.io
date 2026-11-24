@@ -1,0 +1,10 @@
+{{- $p := hugo.Data.profile -}}
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© {{ now.Year }} {{ $p.name }} ({{ $p.name_en }})</p>
+    <p class="footer-links">
+      {{ range $p.links }}<a href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}
+    </p>
+    <p class="muted small">Hugo로 만들고 GitHub Actions로 GitHub Pages에 배포합니다.</p>
+  </div>
+</footer>

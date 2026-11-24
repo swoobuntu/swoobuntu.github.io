@@ -1,0 +1,81 @@
+<svg viewBox="0 0 970 560" xmlns="http://www.w3.org/2000/svg" font-family="Arial, 'Malgun Gothic', sans-serif" role="img">
+<title>VPC Endpoint 연결 구조 - Full PrivateLink</title>
+<desc>VPC 프레임에서 7종 VPC 엔드포인트를 통해 Systems Manager, CloudWatch, Secrets Manager, S3에 인터넷 없이 연결</desc>
+<defs>
+<linearGradient id="gVPC" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A87BFF"/><stop offset="1" stop-color="#7A3FE4"/></linearGradient>
+<linearGradient id="gMgmt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F4529C"/><stop offset="1" stop-color="#C40E68"/></linearGradient>
+<linearGradient id="gSec" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E8586C"/><stop offset="1" stop-color="#C41F37"/></linearGradient>
+<linearGradient id="gS3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6DBE45"/><stop offset="1" stop-color="#3C7D22"/></linearGradient>
+</defs>
+
+<!-- VPC container (smaller) -->
+<rect x="22" y="96" width="250" height="396" rx="16" fill="#F5F0FF" stroke="#8C4FFF" stroke-width="2.5" stroke-dasharray="8 6"/>
+<rect x="38" y="112" width="30" height="30" rx="6" fill="url(#gVPC)"/>
+<rect x="44" y="118" width="18" height="18" rx="2" fill="none" stroke="#fff" stroke-width="1.8"/>
+<line x1="44" y1="127" x2="62" y2="127" stroke="#fff" stroke-width="1.8"/>
+<text x="78" y="126" font-size="17" font-weight="bold" fill="#6B21D9">VPC</text>
+<text x="78" y="143" font-size="12.5" fill="#7A3FE4">10.0.0.0/16</text>
+<text x="38" y="170" font-size="11" fill="#8A94A6">2 AZ (2a·2c) · NAT 없음</text>
+
+<!-- Endpoint nodes (right edge of VPC) -->
+<rect x="230" y="191" width="38" height="38" rx="8" fill="url(#gVPC)"/>
+<circle cx="249" cy="210" r="6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="249" cy="210" r="1.8" fill="#fff"/>
+<path d="M235 210 L241 210 M257 210 L263 210" stroke="#fff" stroke-width="2"/>
+<rect x="230" y="273" width="38" height="38" rx="8" fill="url(#gVPC)"/>
+<circle cx="249" cy="292" r="6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="249" cy="292" r="1.8" fill="#fff"/>
+<path d="M235 292 L241 292 M257 292 L263 292" stroke="#fff" stroke-width="2"/>
+<rect x="230" y="355" width="38" height="38" rx="8" fill="url(#gVPC)"/>
+<circle cx="249" cy="374" r="6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="249" cy="374" r="1.8" fill="#fff"/>
+<path d="M235 374 L241 374 M257 374 L263 374" stroke="#fff" stroke-width="2"/>
+<rect x="230" y="437" width="38" height="38" rx="8" fill="#3C7D22"/>
+<circle cx="249" cy="456" r="6" fill="none" stroke="#fff" stroke-width="2"/><circle cx="249" cy="456" r="1.8" fill="#fff"/>
+<path d="M235 456 L241 456 M257 456 L263 456" stroke="#fff" stroke-width="2"/>
+
+<!-- Connectors (short) -->
+<line x1="268" y1="210" x2="342" y2="210" stroke="#8C4FFF" stroke-width="2.4"/>
+<line x1="268" y1="292" x2="342" y2="292" stroke="#8C4FFF" stroke-width="2.4"/>
+<line x1="268" y1="374" x2="342" y2="374" stroke="#8C4FFF" stroke-width="2.4"/>
+<line x1="268" y1="456" x2="342" y2="456" stroke="#3C7D22" stroke-width="2.4" stroke-dasharray="6 4"/>
+<text x="305" y="203" font-size="10" fill="#8C4FFF" text-anchor="middle">PrivateLink</text>
+<text x="305" y="285" font-size="10" fill="#8C4FFF" text-anchor="middle">PrivateLink</text>
+<text x="305" y="367" font-size="10" fill="#8C4FFF" text-anchor="middle">PrivateLink</text>
+<text x="305" y="449" font-size="10" fill="#3C7D22" text-anchor="middle">Gateway·RT</text>
+
+<!-- Service icons -->
+<rect x="344" y="181" width="58" height="58" rx="11" fill="url(#gMgmt)"/>
+<g transform="translate(373,210)" fill="#fff">
+<rect x="-2.5" y="-20" width="5" height="7" transform="rotate(0)"/><rect x="-2.5" y="-20" width="5" height="7" transform="rotate(45)"/>
+<rect x="-2.5" y="-20" width="5" height="7" transform="rotate(90)"/><rect x="-2.5" y="-20" width="5" height="7" transform="rotate(135)"/>
+<rect x="-2.5" y="-20" width="5" height="7" transform="rotate(180)"/><rect x="-2.5" y="-20" width="5" height="7" transform="rotate(225)"/>
+<rect x="-2.5" y="-20" width="5" height="7" transform="rotate(270)"/><rect x="-2.5" y="-20" width="5" height="7" transform="rotate(315)"/>
+<circle cx="0" cy="0" r="12" fill="#fff"/><circle cx="0" cy="0" r="5" fill="url(#gMgmt)"/>
+</g>
+<text x="414" y="203" font-size="15" font-weight="bold" fill="#232F3E">AWS Systems Manager</text>
+<text x="414" y="220" font-size="11.5" fill="#5A6B7B">ssm · ssmmessages · ec2messages</text>
+<text x="414" y="237" font-size="11.5" fill="#C40E68">→ Bastion 없는 원격접속 (Session Manager)</text>
+
+<rect x="344" y="263" width="58" height="58" rx="11" fill="url(#gMgmt)"/>
+<polyline points="353,292 363,292 368,281 374,305 379,292 393,292" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="414" y="285" font-size="15" font-weight="bold" fill="#232F3E">Amazon CloudWatch</text>
+<text x="414" y="302" font-size="11.5" fill="#5A6B7B">monitoring · logs</text>
+<text x="414" y="319" font-size="11.5" fill="#C40E68">→ 지표·로그 수집</text>
+
+<rect x="344" y="345" width="58" height="58" rx="11" fill="url(#gSec)"/>
+<g transform="translate(373,374)" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round">
+<circle cx="-6" cy="0" r="7"/><line x1="1" y1="0" x2="15" y2="0"/><line x1="15" y1="0" x2="15" y2="6"/><line x1="10" y1="0" x2="10" y2="5"/>
+</g>
+<text x="414" y="367" font-size="15" font-weight="bold" fill="#232F3E">AWS Secrets Manager</text>
+<text x="414" y="384" font-size="11.5" fill="#5A6B7B">secretsmanager</text>
+<text x="414" y="401" font-size="11.5" fill="#C41F37">→ RDS·Redis 자격증명 안전 조회</text>
+
+<rect x="344" y="427" width="58" height="58" rx="11" fill="url(#gS3)"/>
+<path d="M358 442 h30 l-4 28 h-22 z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linejoin="round"/>
+<ellipse cx="373" cy="442" rx="15" ry="4.5" fill="none" stroke="#fff" stroke-width="2.4"/>
+<text x="414" y="449" font-size="15" font-weight="bold" fill="#232F3E">Amazon S3</text>
+<text x="414" y="466" font-size="11.5" fill="#5A6B7B">s3 (Gateway) · 무료</text>
+<text x="414" y="483" font-size="11.5" fill="#2F6B1A">→ OS 업데이트(dnf) · 설치파일 배포</text>
+
+<!-- Bottom caption -->
+<rect x="22" y="514" width="926" height="32" rx="8" fill="#EEF6EF" stroke="#3C7D22" stroke-width="1.2"/>
+<text x="485" y="535" font-size="13" font-weight="bold" fill="#2F6B1A" text-anchor="middle">🔒 모든 트래픽은 AWS 백본 경유 — 인터넷 / NAT 미사용 (Interface 6종 + Gateway 1종)</text>
+</svg>

@@ -1,0 +1,23 @@
+baseURL = "https://swoobuntu.github.io/"
+locale = "ko-KR"
+defaultContentLanguage = "ko"
+title = "최성우 · Cloud Engineer 포트폴리오"
+enableRobotsTXT = true
+
+[params]
+  author = "최성우 (Karfa Choi)"
+  description = "AWS·NCP 클라우드 실무 2년, AWS–GCP 멀티클라우드 재해복구와 AWS 3-Tier 네트워크·보안 프로젝트를 담은 Cloud Engineer 포트폴리오"
+  ogImage = "images/og.png"
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[markup.highlight]
+  noClasses = false
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+[taxonomies]

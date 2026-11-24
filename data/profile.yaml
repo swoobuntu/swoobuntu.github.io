@@ -1,0 +1,19 @@
+name: 최성우
+name_en: Karfa Choi
+role: Cloud Engineer
+tagline: >-
+  AWS·NCP 기반 클라우드 인프라를 구축·운영해 온 Cloud Engineer입니다.
+  AWS–GCP 멀티클라우드 재해복구와 AWS 3-Tier 네트워크·보안 설계 프로젝트를 팀장으로 이끌었습니다.
+facts:
+  - 클라우드 실무 2년 · (주)퓨렌스
+  - AWS DevOps Engineer – Professional
+  - AWS Solutions Architect – Associate
+  - 멀티클라우드 (AWS · GCP · NCP)
+links:
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/karfa-choi
+    primary: true
+  - label: GitHub
+    url: https://github.com/swoobuntu
+  - label: Credly 자격증
+    url: https://www.credly.com/users/username.3c5d6123

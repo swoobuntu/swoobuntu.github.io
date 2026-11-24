@@ -1,0 +1,37 @@
+- title: Bank of Anthos 멀티클라우드 재해복구(DR)
+  page: /projects/final/
+  period: 2026.08 – 2026.10 · 5주
+  team: 5인 팀
+  role: 팀장 · 전체 아키텍처 설계 · 모니터링/감사
+  summary: >-
+    AWS EKS를 주 사이트, GCP를 대기 사이트로 두고 은행 마이크로서비스 6종을 운영하며,
+    RDS에서 Cloud SQL로 연속 복제하는 크로스클라우드 DR을 Terraform·GitOps로 구축하고 장애 주입 시연까지 수행했습니다.
+  highlights:
+    - Active-Standby + AWS DMS CDC + HA VPN(터널 4개, BGP) DR 설계
+    - 복제 슬롯 WAL 적체 최대 9GB → 0.1GB 수준으로 해소
+    - 앱 무수정 OpenTelemetry 관측, 수집기 한 지점에서 금융 데이터 마스킹
+    - CloudTrail · EKS audit 감사 체인으로 GitOps 우회 변경 탐지
+  stack: [Terraform, AWS EKS, RDS, DMS, GCP GKE, Cloud SQL, HA VPN, Argo CD, OpenTelemetry]
+  repos:
+    - label: Infra 저장소 (내 커밋 55 / 97)
+      url: https://github.com/AWS-Team1/Infra
+    - label: gitops 저장소 (내 커밋 26 / 183)
+      url: https://github.com/AWS-Team1/gitops
+
+- title: AWS 3-Tier 웹 인프라 — NAT 없는 사설 네트워크와 다계층 방어
+  page: /projects/midterm/
+  period: 2026.06 – 2026.07 · 2주
+  team: 5인 팀
+  role: 팀장 · 네트워크/보안
+  summary: >-
+    Spring PetClinic을 운영하는 AWS 3-Tier 인프라에서 네트워크·보안을 설계·구축했습니다.
+    NAT Gateway 없이 VPC 엔드포인트만으로 프라이빗 서버를 운영하고, WAF · NACL · 보안그룹 3단계로 방어했습니다.
+  highlights:
+    - 티어별 /21 예약 · /24 배포로 서브넷을 늘려도 NACL 수정 0건
+    - NAT 0 · VPC 엔드포인트 7종 · Bastion 없는 SSM 접속
+    - 인 · 아웃바운드 양방향 보안그룹 참조 체인
+    - WAF 오탐(사진 업로드 차단)을 로그로 분석해 기능 복구
+  stack: [VPC, NACL, Security Group, VPC Endpoint, SSM, IAM, AWS WAF, GuardDuty, CloudTrail]
+  repos:
+    - label: 설계 문서 저장소
+      url: https://github.com/swoobuntu/aws-3tier-network-security

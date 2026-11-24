@@ -1,0 +1,110 @@
+{{ define "main" }}
+{{- $p := hugo.Data.profile -}}
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">{{ $p.role }}</p>
+    <h1>{{ $p.name }} <span class="name-en">{{ $p.name_en }}</span></h1>
+    <p class="lead">{{ $p.tagline }}</p>
+    <ul class="facts">
+      {{ range $p.facts }}<li>{{ . }}</li>{{ end }}
+    </ul>
+    <div class="cta">
+      {{ range $p.links }}<a class="btn {{ if .primary }}btn-primary{{ end }}" href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="wrap">
+    <h2 class="section-title">프로젝트</h2>
+    <div class="project-grid">
+      {{ range hugo.Data.projects }}
+      <article class="project-card">
+        <p class="card-meta">{{ .period }} · {{ .team }}</p>
+        <h3><a href="{{ .page | relURL }}">{{ .title }}</a></h3>
+        <p class="card-role">{{ .role }}</p>
+        <p>{{ .summary }}</p>
+        <ul class="highlights">
+          {{ range .highlights }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <ul class="chips">
+          {{ range .stack }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <div class="card-links">
+          <a class="btn btn-primary" href="{{ .page | relURL }}">자세히 보기</a>
+          {{ range .repos }}<a class="btn" href="{{ .url }}" rel="noopener">{{ .label }}</a>{{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section alt">
+  <div class="wrap">
+    <h2 class="section-title">경력</h2>
+    {{ range hugo.Data.experience }}
+    <div class="timeline-item">
+      <div class="tl-head">
+        <h3>{{ .company }}</h3>
+        <span class="tl-period">{{ .period }}</span>
+      </div>
+      <p class="card-role">{{ .title }} · {{ .type }}</p>
+      <ul class="bullets">
+        {{ range .bullets }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="wrap">
+    <h2 class="section-title">기술</h2>
+    <div class="skill-grid">
+      {{ range hugo.Data.skills }}
+      <div class="skill-group">
+        <h3>{{ .category }}</h3>
+        <ul class="chips">
+          {{ range .items }}<li>{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section id="certifications" class="section alt">
+  <div class="wrap">
+    <h2 class="section-title">자격증 · 수료</h2>
+    <div class="cert-grid">
+      {{ range hugo.Data.certifications }}
+      <div class="cert-card">
+        <p class="cert-issuer">{{ .issuer }}</p>
+        <h3>{{ .name }}</h3>
+        <p class="muted small">
+          {{ with .issued }}발행 {{ . }}{{ end }}{{ with .expires }} · 만료 {{ . }}{{ end }}
+        </p>
+        {{ with .url }}<a class="text-link" href="{{ . }}" rel="noopener">인증 정보 보기 →</a>{{ end }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<section id="education" class="section">
+  <div class="wrap">
+    <h2 class="section-title">학력</h2>
+    {{ range hugo.Data.education }}
+    <div class="timeline-item">
+      <div class="tl-head">
+        <h3>{{ .school }}</h3>
+        <span class="tl-period">{{ .period }}</span>
+      </div>
+      <p class="card-role">{{ .degree }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

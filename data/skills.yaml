@@ -1,0 +1,14 @@
+- category: Cloud
+  items: [AWS, GCP, NCP, Azure]
+- category: IaC
+  items: [Terraform]
+- category: Container
+  items: [Kubernetes (EKS · GKE), Kustomize, Helm]
+- category: CI/CD
+  items: [GitHub Actions, Jenkins, Argo CD]
+- category: Database
+  items: [Oracle Database, PostgreSQL, MySQL]
+- category: Observability · Security
+  items: [OpenTelemetry, CloudWatch, CloudTrail, AWS WAF, GuardDuty]
+- category: OS
+  items: [Linux]

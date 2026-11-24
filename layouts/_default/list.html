@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="section">
+  <div class="wrap narrow">
+    <h1>{{ .Title }}</h1>
+    <ul class="bullets">
+      {{ range .Pages }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> — {{ .Params.summary }}</li>{{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}
