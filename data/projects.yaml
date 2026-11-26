@@ -1,10 +1,10 @@
-- title: AWS · GCP 멀티클라우드 재해복구(DR) — 은행 서비스의 크로스클라우드 Pilot Light 구축
+- title: AWS · GCP 멀티클라우드 재해복구(DR) 인프라 구축
   page: /projects/final/
   period: 2026.08 – 2026.10 · 5주
   program: KDT 부트캠프 · 최종 프로젝트
   role: "담당 파트 : Database(DR), Observability, Governance"
   summary: >-
-    AWS EKS를 주 사이트, GCP를 대기 사이트로 두고 은행 마이크로서비스 6종을 운영하며,
+    AWS EKS를 주 사이트, GCP를 대기 사이트로 두고 샘플 뱅킹 앱(마이크로서비스 6종)을 운영하며,
     RDS에서 Cloud SQL로 연속 복제하는 크로스클라우드 DR을 Terraform·GitOps로 구축하고 장애 주입 시연까지 수행했습니다.
   highlights:
     - Active-Standby + AWS DMS CDC + HA VPN(터널 4개, BGP) DR 설계
