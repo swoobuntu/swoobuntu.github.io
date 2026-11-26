@@ -6,7 +6,7 @@ description: "AWS EKS 주 사이트와 GCP 대기 사이트를 잇는 크로스�
 meta:
   - { label: "기간", value: "2026.08.31 – 10.02 (5주)" }
   - { label: "과정", value: "KDT 멀티클라우드 엔지니어 부트캠프 4기 · 최종 프로젝트" }
-  - { label: "역할", value: "팀장 · 전체 아키텍처 설계 · 모니터링/감사" }
+  - { label: "담당 파트", value: "Database(DR) · Observability · Governance" }
   - { label: "핵심 기술", value: "Terraform · EKS · DMS · Cloud SQL · OpenTelemetry" }
 repos:
   - { label: "Infra 저장소 (내 커밋 55 / 97)", url: "https://github.com/AWS-Team1/Infra" }
@@ -19,7 +19,7 @@ repos:
 |---|---|
 | 목적 | 은행 마이크로서비스를 AWS 주 사이트와 GCP 대기 사이트에 걸쳐 운영하고, 클라우드 단위 장애에 대비한 재해복구를 구축·시연 |
 | 대상 | 구글 샘플 은행 앱 Bank of Anthos (Python 3종, Java 3종), PostgreSQL 2개 DB |
-| 내 역할 | 팀장. 전체 아키텍처 설계, 모니터링·감사 담당 |
+| 담당 파트 | Database(DR), Observability, Governance |
 
 **핵심 기여**
 

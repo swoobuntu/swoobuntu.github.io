@@ -6,7 +6,7 @@ description: "Spring PetClinic AWS 3-Tier 인프라의 네트워크·보안 설�
 meta:
   - { label: "기간", value: "2026.06.30 – 07.14 (2주)" }
   - { label: "과정", value: "KDT 멀티클라우드 엔지니어 부트캠프 4기 · 중간 프로젝트" }
-  - { label: "역할", value: "팀장 · 네트워크/보안" }
+  - { label: "담당 파트", value: "네트워크 · 보안" }
   - { label: "구축 방식", value: "AWS 콘솔" }
 repos:
   - { label: "설계 문서 저장소", url: "https://github.com/swoobuntu/aws-3tier-network-security" }
