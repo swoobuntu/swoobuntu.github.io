@@ -22,8 +22,8 @@
   program: KDT 부트캠프 · 중간 프로젝트
   role: "담당 파트 : 네트워크, 보안"
   summary: >-
-    웹 애플리케이션 운영을 위한 인스턴스 기반의 AWS 3-Tier 아키텍처를 구축하고,
-    사설 네트워크와 보안(NACL · 보안그룹 · WAF)을 구축했습니다.
+    웹 애플리케이션 운영을 위한 인스턴스 기반 AWS 3-Tier 인프라를 구축,
+    NAT 없는 사설 네트워크(VPC 엔드포인트 · SSM)와 WAF · NACL · 보안그룹 보안 구성
   highlights:
     - 티어별 /21 예약 · /24 배포로 서브넷을 늘려도 NACL 수정 0건
     - NAT 0 · VPC 엔드포인트 7종 · Bastion 없는 SSM 접속
