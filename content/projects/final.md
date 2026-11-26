@@ -39,43 +39,55 @@ meta:
 
 ## 전체 구조
 
-두 구성을 모두 구축했고, ②는 PoC 단계까지 진행했습니다. 그림의 파란 상자와 빨간 상자는 두 구성이 서로 다른 부분이고, 그림을 누르면 원본 크기로 열립니다.
+두 구성을 모두 구축했습니다. ①로 서비스를 먼저 완성한 뒤, 은행권 결제 서비스처럼 **서버의 인터넷 아웃바운드를 제한하는 환경**에서도 운영할 수 있도록 CI/CD와 관측을 다시 설계한 것이 ②이며, PoC 단계까지 진행했습니다.
 
-| 구분 | ① NAT-GW 기반 | ② NAT-GW 없는 구성 (PoC) |
+| 구분 | ① NAT-GW 기반 구성 | ② 아웃바운드 제한 구성 (PoC) |
 |---|---|---|
-| 배포 방식 | Argo CD가 GitHub 매니페스트를 조회해 동기화 | GitHub Actions가 ECR · SQS에 넣고, 클러스터가 꺼내 배포 |
-| 인터넷 출구 | 프라이빗 서브넷 → AZ별 NAT-GW | 없음 (AWS 서비스는 VPC 엔드포인트로) |
-| 관측 | OpenTelemetry → WhaTap (SaaS) | Prometheus · Grafana · Tempo · Loki (VPC 내부) |
+| 목적 | 멀티클라우드 DR 서비스 구축 | 인터넷 아웃바운드 없이 배포 · 운영 |
+| 배포 방식 | **Pull** — Argo CD가 GitHub을 조회 | **Push** — GitHub Actions가 ECR · SQS에 전달 |
+| 인터넷 출구 | 프라이빗 서브넷 → AZ별 NAT-GW | 없음 — AWS 서비스는 VPC 엔드포인트로 |
+| 관측 | OpenTelemetry → WhaTap (외부 SaaS) | Prometheus · Grafana · Tempo · Loki (VPC 내부) |
+
+> 그림의 파란 상자와 빨간 상자는 두 구성이 서로 다른 부분입니다. 그림을 누르면 원본 크기로 열립니다.
 
 ### ① NAT-GW 기반 구성
 
 [![아키텍처 ① — NAT-GW 기반, Argo CD GitOps, OpenTelemetry · WhaTap 관측](/images/final-architecture-1.png)](/images/final-architecture-1.png)
 
 **배포 흐름**
-1. 개발자가 GitHub에 push하면 GitHub Actions가 앱 이미지를 빌드해 ECR에 올립니다.
-2. EKS 안의 Argo CD가 GitHub의 GitOps 매니페스트를 조회해 바뀐 내용을 클러스터에 동기화합니다.
-3. 노드는 ECR에서 이미지를 받아 서비스를 띄웁니다.
+
+| 단계 | 주체 | 동작 |
+|---|---|---|
+| 1 | GitHub Actions | 앱 이미지를 빌드해 ECR에 push |
+| 2 | Argo CD (EKS) | NAT-GW를 거쳐 GitHub의 GitOps 매니페스트를 조회하고 변경분을 동기화 |
+| 3 | EKS 노드 | ECR에서 이미지를 받아 서비스 기동 |
 
 **설계 포인트**
-- 프라이빗 서브넷의 외부 통신(GitHub 조회, WhaTap 전송)은 AZ마다 둔 NAT-GW로 나갑니다.
-- Argo CD 표준 방식(클러스터가 Git을 바라보는 pull 모델)이라 구성이 단순합니다.
-- 대가로 NAT 비용이 들고, 클러스터에서 인터넷으로 나가는 경로가 생깁니다.
+- **표준 GitOps** — 클러스터가 Git 저장소를 바라보는 Argo CD 기본 방식이라 구성이 단순합니다.
+- **AZ별 NAT-GW** — 프라이빗 서브넷의 외부 통신(GitHub 조회, WhaTap 전송)을 처리합니다.
+- **한계** — 클러스터에서 인터넷으로 나가는 경로가 항상 열려 있어, 아웃바운드를 제한하는 환경에는 맞지 않습니다.
 
-### ② NAT-GW 없는 CI/CD (PoC)
+### ② 아웃바운드 제한 구성 (PoC)
 
-[![아키텍처 ② — NAT-GW 없는 CI/CD, Argo Events · Workflows, Prometheus · Grafana · Tempo · Loki 관측](/images/final-architecture-2.png)](/images/final-architecture-2.png)
+[![아키텍처 ② — 아웃바운드 제한 구성, Argo Events · Workflows, Prometheus · Grafana · Tempo · Loki 관측](/images/final-architecture-2.png)](/images/final-architecture-2.png)
+
+**배경** — 금융권처럼 서버가 인터넷으로 나가는 경로를 막는 환경에서는 ①의 두 가지가 동작하지 않습니다. 클러스터의 Argo CD가 GitHub을 조회하는 것과, 관측 데이터를 외부 SaaS로 보내는 것입니다. 그래서 클러스터가 밖으로 나가지 않아도 배포 · 관측이 되도록 바꿨습니다.
 
 **배포 흐름**
-1. 개발자가 GitHub에 push하면 GitHub Actions가 OIDC로 AWS 권한을 받아 매니페스트를 렌더링합니다. 우리 ECR이 아닌 이미지가 섞여 있으면 여기서 실패합니다.
-2. 매니페스트를 Helm 차트로 묶어 ECR에 올리고(OCI), 배포 메시지(커밋 · 차트 버전 · digest)를 SQS로 보냅니다.
-3. EKS 안의 Argo Events가 SQS 메시지를 받아 Argo Workflows를 실행합니다.
-4. 워크플로는 ECR의 차트 digest가 메시지와 같은지 확인한 뒤 차트를 받아 `helm upgrade --atomic`으로 배포합니다. 실패하면 자동으로 되돌립니다.
+
+| 단계 | 주체 | 동작 |
+|---|---|---|
+| 1 | GitHub Actions | OIDC로 AWS 권한을 받아 매니페스트 렌더링 · 우리 ECR 외 이미지가 있으면 중단 |
+| 2 | GitHub Actions | Helm 차트로 묶어 ECR에 push(OCI) · 배포 메시지(커밋 · 차트 버전 · digest)를 SQS로 전송 |
+| 3 | Argo Events (EKS) | VPC 엔드포인트로 SQS 메시지를 받아 Argo Workflows 실행 |
+| 4 | Argo Workflows (EKS) | ECR의 차트 digest가 메시지와 같은지 검증 → 차트 pull → `helm upgrade --atomic` 배포 |
 
 **설계 포인트**
-- 방향을 뒤집었습니다. 클러스터가 밖으로 가지러 가지 않고, 외부(GitHub)가 AWS 안(ECR · SQS)에 넣어 두면 클러스터는 VPC 엔드포인트로 AWS 서비스만 사용합니다.
-- 배포 대상을 차트 digest로 고정해, 메시지와 실제 아티팩트가 다르면 배포하지 않습니다.
-- 관측 데이터도 외부 SaaS로 보내지 않고 VPC 안의 Prometheus · Grafana · Tempo · Loki로 모읍니다.
-- 대가로 SQS, Argo Events · Workflows, 엔드포인트, 자체 관측 스택처럼 운영할 구성 요소가 늘어납니다.
+- **아웃바운드 0** — NAT-GW를 없애고, ECR · SQS 같은 AWS 서비스는 VPC 엔드포인트로만 접근합니다.
+- **Pull → Push 전환** — 클러스터가 밖으로 가지러 가는 대신, 외부(GitHub)가 AWS 안의 ECR · SQS에 넣어 두고 클러스터는 꺼내기만 합니다.
+- **배포 대상 고정** — 우리 ECR 이미지만 허용하고, 차트 digest를 검증해 메시지와 실제 아티팩트가 다르면 배포하지 않습니다. 실패하면 자동으로 되돌리고, 동시 배포는 잠금으로 막습니다.
+- **관측 내재화** — 외부 SaaS 대신 VPC 안의 Prometheus · Grafana · Tempo · Loki로 지표 · 트레이스 · 로그를 모읍니다.
+- **대가** — SQS, Argo Events · Workflows, VPC 엔드포인트, 자체 관측 스택까지 직접 운영할 구성 요소가 늘어납니다.
 
 ### 요청 흐름 요약
 
