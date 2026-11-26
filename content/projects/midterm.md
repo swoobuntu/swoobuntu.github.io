@@ -5,7 +5,7 @@ summary: "프라이빗 서버가 인터넷 없이 운영될 수 있는가, 한 �
 description: "Spring PetClinic AWS 3-Tier 인프라의 네트워크·보안 설계 — 티어 예약 대역, NAT 없는 VPC 엔드포인트, 보안그룹 참조 체인, WAF"
 meta:
   - { label: "기간", value: "2026.06.30 – 07.14 (2주)" }
-  - { label: "팀", value: "5인" }
+  - { label: "과정", value: "KDT 멀티클라우드 엔지니어 부트캠프 4기 · 중간 프로젝트" }
   - { label: "역할", value: "팀장 · 네트워크/보안" }
   - { label: "구축 방식", value: "AWS 콘솔" }
 repos:

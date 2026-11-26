@@ -33,7 +33,7 @@
     <div class="project-grid">
       {{ range hugo.Data.projects }}
       <article class="project-card lift reveal">
-        <p class="card-meta">{{ .period }} · {{ .team }}</p>
+        <p class="card-meta"><span class="program-badge">{{ .program }}</span><span>{{ .period }}</span></p>
         <h3><a href="{{ .page | relURL }}">{{ .title }}</a></h3>
         <p class="card-role">{{ .role }}</p>
         <p>{{ .summary }}</p>

@@ -1,7 +1,7 @@
 - title: Bank of Anthos 멀티클라우드 재해복구(DR)
   page: /projects/final/
   period: 2026.08 – 2026.10 · 5주
-  team: 5인 팀
+  program: KDT 부트캠프 · 최종 프로젝트
   role: 팀장 · 전체 아키텍처 설계 · 모니터링/감사
   summary: >-
     AWS EKS를 주 사이트, GCP를 대기 사이트로 두고 은행 마이크로서비스 6종을 운영하며,
@@ -21,7 +21,7 @@
 - title: AWS 3-Tier 웹 인프라 — NAT 없는 사설 네트워크와 다계층 방어
   page: /projects/midterm/
   period: 2026.06 – 2026.07 · 2주
-  team: 5인 팀
+  program: KDT 부트캠프 · 중간 프로젝트
   role: 팀장 · 네트워크/보안
   summary: >-
     Spring PetClinic을 운영하는 AWS 3-Tier 인프라에서 네트워크·보안을 설계·구축했습니다.
