@@ -16,7 +16,7 @@
     - label: 프로젝트 문서 저장소
       url: https://github.com/swoobuntu/multicloud-dr-bank-of-anthos
 
-- title: AWS 3-Tier 웹 인프라 — NAT 없는 사설 네트워크와 다계층 방어
+- title: AWS WEB · WAS · DB 3-Tier 인프라 구축
   page: /projects/midterm/
   period: 2026.06 – 2026.07 · 2주
   program: KDT 부트캠프 · 중간 프로젝트
