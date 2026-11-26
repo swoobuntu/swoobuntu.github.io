@@ -39,6 +39,18 @@ meta:
 
 ## 전체 구조
 
+발표 자료의 **아키텍처 비교** 두 장입니다. 파란 상자와 빨간 상자는 두 구성이 서로 다른 부분입니다. 그림을 누르면 원본 크기로 열립니다.
+
+**① GitHub Actions 기반 CI · WhaTap 관측**
+
+[![아키텍처 ① — GitHub Actions 기반 CI, OpenTelemetry · WhaTap 관측](/images/final-architecture-1.png)](/images/final-architecture-1.png)
+
+**② Argo Events · Argo Workflows 기반 CI · Prometheus · Grafana 관측**
+
+[![아키텍처 ② — Argo Events · Workflows 기반 CI, Prometheus · Grafana · Tempo · Loki 관측](/images/final-architecture-2.png)](/images/final-architecture-2.png)
+
+**요청 흐름 요약**
+
 ```mermaid
 flowchart LR
   U[사용자] --> DNS{{"DNS<br/>Route 53 + Cloud DNS"}}
