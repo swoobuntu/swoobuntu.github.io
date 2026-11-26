@@ -240,8 +240,15 @@ img { max-width: 100%; height: auto; }
 .prose table {
   width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .93rem;
   display: block; overflow-x: auto;
+  /* 표 안에서는 단어 중간에서 줄이 바뀌지 않게 — 좁은 화면에서는 쪼개는 대신 표가 가로로 스크롤됨 */
+  overflow-wrap: normal;
 }
 .prose th, .prose td { border: 1px solid var(--line); padding: 9px 12px; text-align: left; vertical-align: top; }
+/* 첫 열은 항목 이름 — "담당 파트"처럼 짧은 이름이 두 줄로 쪼개지지 않게 */
+.prose th:first-child, .prose td:first-child { min-width: 6.2em; }
+@media (min-width: 721px) {
+  .prose th:first-child, .prose td:first-child { white-space: nowrap; }
+}
 .prose th { background: var(--bg-alt); font-weight: 700; white-space: nowrap; }
 .prose code {
   background: var(--chip-bg); border-radius: 6px; padding: 1px 6px; font-size: .88em;
