@@ -8,9 +8,6 @@ meta:
   - { label: "과정", value: "KDT 멀티클라우드 엔지니어 부트캠프 4기 · 최종 프로젝트" }
   - { label: "담당 파트", value: "Database(DR) · Observability · Governance" }
   - { label: "핵심 기술", value: "Terraform · EKS · DMS · Cloud SQL · OpenTelemetry" }
-repos:
-  - { label: "Infra 저장소 (내 커밋 55 / 97)", url: "https://github.com/AWS-Team1/Infra" }
-  - { label: "gitops 저장소 (내 커밋 26 / 183)", url: "https://github.com/AWS-Team1/gitops" }
 ---
 
 ## 프로젝트 요약

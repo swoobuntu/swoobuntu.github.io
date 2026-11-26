@@ -12,11 +12,6 @@
     - 앱 무수정 OpenTelemetry 관측, 수집기 한 지점에서 금융 데이터 마스킹
     - CloudTrail · EKS audit 감사 체인으로 GitOps 우회 변경 탐지
   stack: [Terraform, AWS EKS, RDS, DMS, GCP GKE, Cloud SQL, HA VPN, Argo CD, OpenTelemetry]
-  repos:
-    - label: Infra 저장소 (내 커밋 55 / 97)
-      url: https://github.com/AWS-Team1/Infra
-    - label: gitops 저장소 (내 커밋 26 / 183)
-      url: https://github.com/AWS-Team1/gitops
 
 - title: AWS 3-Tier 웹 인프라 — NAT 없는 사설 네트워크와 다계층 방어
   page: /projects/midterm/
