@@ -23,6 +23,13 @@ repos:
 
 ## 전체 구조
 
+[![최종 3-Tier 아키텍처 구성도](/images/midterm-architecture.png)](/images/midterm-architecture.png)
+
+> 최종 3-Tier 아키텍처 구성도 (팀 작성, 클릭하면 원본 크기로 열립니다).
+> 서브넷 라벨의 `/21` · `/22`는 티어 예약 대역이고, 실제 배포한 서브넷은 AZ마다 `/24`입니다.
+
+**요청 흐름 요약**
+
 ```mermaid
 flowchart TB
     U[사용자] --> CF[CloudFront<br/>단일 진입점 · TLS]
