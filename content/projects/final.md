@@ -8,6 +8,8 @@ meta:
   - { label: "과정", value: "KDT 멀티클라우드 엔지니어 부트캠프 4기 · 최종 프로젝트" }
   - { label: "담당 파트", value: "Database(DR) · Observability · Governance" }
   - { label: "핵심 기술", value: "Terraform · EKS · DMS · Cloud SQL · OpenTelemetry" }
+repos:
+  - { label: "프로젝트 문서 저장소", url: "https://github.com/swoobuntu/multicloud-dr-bank-of-anthos" }
 ---
 
 ## 프로젝트 요약
