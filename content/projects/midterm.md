@@ -1,7 +1,7 @@
 ---
 title: "AWS WEB · WAS · DB 3-Tier 인프라 구축"
 kicker: "KDT 중간 프로젝트"
-summary: "동물병원 관리 웹앱(Spring PetClinic)을 위한 인스턴스 기반 AWS 3-Tier 인프라에서, NAT 없는 사설 네트워크(VPC 엔드포인트 · SSM)와 WAF · NACL · 보안그룹 다계층 방어를 설계 · 구축했습니다."
+summary: "동물병원 관리 웹앱(Spring PetClinic)을 위한 인스턴스 기반 AWS 3-Tier 인프라에서, NAT 없는 사설 네트워크(VPC 엔드포인트 · SSM)와 WAF · NACL · 보안그룹 보안 구성을 설계 · 구축했습니다."
 description: "Spring PetClinic AWS 3-Tier 인프라의 네트워크·보안 설계 — 티어 예약 대역, NAT 없는 VPC 엔드포인트, 보안그룹 참조 체인, WAF"
 meta:
   - { label: "기간", value: "2026.06.30 – 07.14 (2주)" }
