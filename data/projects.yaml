@@ -24,8 +24,8 @@
   program: KDT 부트캠프 · 중간 프로젝트
   role: "담당 파트 : 네트워크, 보안"
   summary: >-
-    Spring PetClinic을 운영하는 AWS 3-Tier 인프라에서 네트워크·보안을 설계·구축했습니다.
-    NAT Gateway 없이 VPC 엔드포인트만으로 프라이빗 서버를 운영하고, WAF · NACL · 보안그룹 3단계로 방어했습니다.
+    웹 애플리케이션 운영을 위한 인스턴스 기반의 AWS 3-Tier 아키텍처를 구축하고,
+    사설 네트워크와 보안(NACL · 보안그룹 · WAF)을 구축했습니다.
   highlights:
     - 티어별 /21 예약 · /24 배포로 서브넷을 늘려도 NACL 수정 0건
     - NAT 0 · VPC 엔드포인트 7종 · Bastion 없는 SSM 접속
