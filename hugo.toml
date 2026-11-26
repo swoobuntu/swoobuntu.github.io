@@ -7,8 +7,8 @@ enableRobotsTXT = true
 [params]
   author = "최성우 (Karfa Choi)"
   description = "퍼블릭 클라우드 구축·관리 직무를 찾고 있는 최성우의 포트폴리오 — AWS·NCP 기반 클라우드 호스팅 인프라 관리 2년, AWS–GCP 멀티클라우드 재해복구, AWS 3-Tier 네트워크·보안 프로젝트"
-  # 미리보기 이미지를 바꾸면 v 값을 올린다 (LinkedIn 등은 같은 이미지 주소를 캐시함)
-  ogImage = "images/og.png?v=2026112402"
+  # 미리보기 이미지를 바꾸면 파일 이름을 바꾼다 (LinkedIn은 쿼리 문자열을 무시하고 이미지 경로로 캐시함)
+  ogImage = "images/og-2026112601.png"
 
 [markup.goldmark.renderer]
   unsafe = false
