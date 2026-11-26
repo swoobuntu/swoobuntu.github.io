@@ -1,4 +1,4 @@
-# 최신 항목이 위로. kind: work | training | cert | edu
+# 최신 항목이 위로. kind: work | training | cert | edu | other
 - date: "2026.11"
   kind: cert
   title: AWS Certified DevOps Engineer – Professional 취득
@@ -20,9 +20,8 @@
     - AWS, NCP 기반 자사 클라우드에서 호스팅으로 제공하는 솔루션의 인프라 구축·관리
     - 고객사 서버와 솔루션 구축, 현장 방문 유지보수
 - date: "2021.02 – 2024.01"
-  kind: work
-  title: 화성칼국수
-  detail: 자영업
+  kind: other
+  title: 화성칼국수 · 외식업 자영업
 - date: "2013.02 – 2021.01"
   kind: edu
   title: 대구대학교 · 컴퓨터공학 공학사

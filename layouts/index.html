@@ -62,7 +62,7 @@
         <span class="tl-dot" aria-hidden="true"></span>
         <div class="tl-card lift">
           <p class="tl-date">{{ .date }}
-            <span class="tl-kind">{{ index (dict "work" "경력" "training" "교육" "project" "프로젝트" "cert" "자격증" "edu" "학력") .kind }}</span>
+            <span class="tl-kind">{{ index (dict "work" "경력" "training" "교육" "project" "프로젝트" "cert" "자격증" "edu" "학력" "other" "기타") .kind }}</span>
           </p>
           <h3>{{ with .link }}<a href="{{ . | relURL }}">{{ end }}{{ .title }}{{ with .link }}</a>{{ end }}</h3>
           {{ with .detail }}<p class="muted">{{ . }}</p>{{ end }}

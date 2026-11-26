@@ -280,6 +280,8 @@ img { max-width: 100%; height: auto; }
 .kind-training .tl-dot { border-color: #10b981; }
 .kind-cert .tl-dot { border-color: #f59e0b; }
 .kind-edu .tl-dot { border-color: var(--muted); }
+.kind-other .tl-dot { border-color: var(--line); background: var(--bg-alt); }
+.kind-other .tl-card h3 { color: var(--text-2); font-weight: 600; }
 .tl-card {
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 20px;
 }
