@@ -1,20 +1,14 @@
-# 최신 항목이 위로. kind: work | project | cert | edu
+# 최신 항목이 위로. kind: work | training | cert | edu
 - date: "2026.11"
   kind: cert
   title: AWS Certified DevOps Engineer – Professional 취득
 - date: "2026.10"
   kind: cert
   title: "Microsoft Certified: Azure Fundamentals 취득"
-- date: "2026.08 – 2026.10"
-  kind: project
-  title: Bank of Anthos 멀티클라우드 재해복구(DR)
-  detail: AWS EKS 주 사이트 · GCP 대기 사이트, DMS CDC · HA VPN · Terraform · OpenTelemetry
-  link: /projects/final/
-- date: "2026.06 – 2026.07"
-  kind: project
-  title: AWS 3-Tier 웹 인프라 — 네트워크·보안
-  detail: NAT 없는 VPC 엔드포인트 구성, WAF · NACL · 보안그룹 다층 방어
-  link: /projects/midterm/
+- date: "2026.04 – 2026.10"
+  kind: training
+  title: K-Digital Training 멀티클라우드 엔지니어 부트캠프 4기
+  detail: 베스핀글로벌
 - date: "2026.04"
   kind: cert
   title: AWS Certified Solutions Architect – Associate 취득
@@ -25,6 +19,10 @@
   bullets:
     - AWS, NCP 기반 자사 클라우드에서 호스팅으로 제공하는 솔루션의 인프라 구축·관리
     - 고객사 서버와 솔루션 구축, 현장 방문 유지보수
+- date: "2021.02 – 2024.01"
+  kind: work
+  title: 화성칼국수
+  detail: 자영업
 - date: "2013.02 – 2021.01"
   kind: edu
   title: 대구대학교 · 컴퓨터공학 공학사

@@ -277,6 +277,7 @@ img { max-width: 100%; height: auto; }
 }
 .kind-work .tl-dot { border-color: #0b5cd5; background: #0b5cd5; }
 .kind-project .tl-dot { border-color: #6d5dfc; }
+.kind-training .tl-dot { border-color: #10b981; }
 .kind-cert .tl-dot { border-color: #f59e0b; }
 .kind-edu .tl-dot { border-color: var(--muted); }
 .tl-card {
@@ -292,6 +293,7 @@ img { max-width: 100%; height: auto; }
 }
 .kind-work .tl-kind { background: var(--accent-soft); color: var(--accent-text); }
 .kind-project .tl-kind { background: rgba(109, 93, 252, .14); color: #6d5dfc; }
+.kind-training .tl-kind { background: rgba(16, 185, 129, .15); color: #047857; }
 .kind-cert .tl-kind { background: rgba(245, 158, 11, .16); color: #b45309; }
 
 /* ── 호버 · 등장 효과 ───────────────────────────────────── */
