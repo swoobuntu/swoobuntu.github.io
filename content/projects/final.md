@@ -1,7 +1,7 @@
 ---
-title: "Bank of Anthos 멀티클라우드 재해복구(DR)"
+title: "AWS · GCP 멀티클라우드 재해복구(DR) — 은행 서비스의 크로스클라우드 Pilot Light 구축"
 kicker: "KDT 최종 프로젝트"
-summary: "AWS가 통째로 사라져도 은행 서비스를 GCP에서 이어가려면 무엇이 필요하고, 그때 무엇을 잃는가."
+summary: "은행 마이크로서비스(Bank of Anthos)를 AWS 주 사이트와 GCP 대기 사이트에 걸쳐 운영하고, DMS CDC 복제 · HA VPN · 앱 무수정 관측 · 감사 체인으로 클라우드 단위 장애에 대비했습니다."
 description: "AWS EKS 주 사이트와 GCP 대기 사이트를 잇는 크로스클라우드 재해복구 — DMS CDC, HA VPN, Terraform, OpenTelemetry, 감사 체인"
 meta:
   - { label: "기간", value: "2026.08.31 – 10.02 (5주)" }
